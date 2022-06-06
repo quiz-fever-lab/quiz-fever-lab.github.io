@@ -1,4 +1,16 @@
-import * as api from "./api/data.js";
+import {page, render} from "./lib.js";
+import {editorPage} from "./views/editor/editor.js";
 
-window.api = api;
+const main = document.getElementById('content');
+
+page('/', decorateContext, editorPage);
+
+page.start();
+
+function decorateContext(ctx, next) {
+    return (ctx) => {
+        ctx.render = (content) => render(content, main);
+        next();
+    };
+}
 
