@@ -12,30 +12,40 @@ const radioEdit = (questionIndex, index, value, checked) => html`
     </div>
 `;
 
-export function createAnswerList(answers, questionIndex, correctIndex) {
-    const current = answers.slice();
+export function createAnswerList(data, questionIndex) {
+    const answers = data.answers;
     const element = document.createElement('div');
     element.addEventListener('click', onDelete);
+    element.addEventListener('change', onChange);
     update();
 
     return element;
 
     function update() {
         render(html`
-            ${current.map((a, i) => radioEdit(questionIndex, i, a, correctIndex == i))}
-            <div class="editor-input">
-                <button @click=${addAnswer} class="input submit action">
-                    <i class="fas fa-plus-circle"></i>
-                    Add answer
-                </button>
-            </div>`,
+                    ${answers.map((a, i) => radioEdit(questionIndex, i, a, data.correctIndex == i))}
+                    <div class="editor-input">
+                        <button @click=${addAnswer} class="input submit action">
+                            <i class="fas fa-plus-circle"></i>
+                            Add answer
+                        </button>
+                    </div>`,
             element
         );
     }
 
+    function onChange(e) {
+        if (e.target.getAttribute('type') == 'text') {
+            const index = Number(e.target.name.split('-')[1]);
+            answers[index] = e.target.value || '';
+        } else {
+            data.correctIndex = Number(e.target.value);
+        }
+    }
+
     function addAnswer(e) {
         e.preventDefault();
-        current.push('');
+        answers.push('');
         update();
     }
 
@@ -47,7 +57,7 @@ export function createAnswerList(answers, questionIndex, correctIndex) {
         const index = target.dataset.index;
         if (index != undefined) {
             e.preventDefault();
-            current.splice(index, 1);
+            answers.splice(index, 1);
             update();
         }
     }

@@ -8,7 +8,7 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/site.css">
+    <link rel="stylesheet" href="./static/site.css">
 
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
@@ -35,7 +35,7 @@
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
 
-    <script src="/src/app.js" type="module"></script>
+    <script src="./src/app.js" type="module"></script>
 </head>
 
 <body>
@@ -44,17 +44,32 @@
 
     <header id="titlebar">
         <nav>
-            <a class="logotype" href="/"><i class="fas fa-question-circle"></i><i
-                    class="merge fas fa-check-circle"></i><span>Quiz Fever</span></a>
+            <a class="logotype" href="/static">
+                <i class="fas fa-question-circle"></i>
+                <i class="merge fas fa-check-circle"></i>
+                <span>
+                    Quiz Fever
+                </span>
+            </a>
             <div class="navigation">
-                <a class="nav-link" href="/browse">Browse</a>
+                <a class="nav-link" href="/browse">
+                    Browse
+                </a>
                 <div id="user-nav">
-                    <a class="nav-link" href="/create">Create</a>
-                    <a class="nav-link profile-link" href="#"><i class="fas fa-user-circle"></i></a>
-                    <a id="logoutBtn" class="nav-link" href="javascript:void(0)">Logout</a>
+                    <a class="nav-link" href="/create">
+                        Create
+                    </a>
+                    <a class="nav-link profile-link" href="#">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    <a id="logoutBtn" class="nav-link" href="javascript:void(0)">
+                        Logout
+                    </a>
                 </div>
                 <div id="guest-nav">
-                    <a class="nav-link" href="/login">Sign in</a>
+                    <a class="nav-link" href="/login">
+                        Sign in
+                    </a>
                 </div>
             </div>
         </nav>
@@ -97,8 +112,12 @@
             <div class="pad-large">
                 <div class="glass narrow">
                     <header class="tab layout">
-                        <h1 class="tab-item active">Login</h1>
-                        <a class="tab-item" href="/register">Register</a>
+                        <h1 class="tab-item active">
+                            Login
+                        </h1>
+                        <a class="tab-item" href="/register">
+                            Register
+                        </a>
                     </header>
                     <form class="pad-med centered">
                         <label class="block centered">Email: <input class="auth-input input" type="text"
@@ -119,7 +138,9 @@
             <div class="hero layout">
                 <div class="splash right-col"><i class="fas fa-clipboard-list"></i></div>
                 <div class="glass welcome">
-                    <h1>Welcome to Quiz Fever!</h1>
+                    <h1>
+                        Welcome to Quiz Fever!
+                    </h1>
                     <p>Home to 157 quizes in 12 topics. <a href="#">Browse all quizes</a>.</p>
                     <a class="action cta" href="#">Sign in to create a quiz</a>
                 </div>

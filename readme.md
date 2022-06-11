@@ -1,39 +1,39 @@
 # Quiz Fever
-Sistema za syzdavane, upravlenie, i popylvane na testove sys svoboden dostyp.
+Система за създаване, управление и попълване на тестове със свободен достъп.
 
-## Funkcionalnost
-* Registraciq na potrebiteli
-* Vyzmozhnost za razglezhdane i reshavane na testove ot drugi porebiteli
-* Razlichni temi, svyrzani s testovete
-* Vyzmozhnost za filtrirane po tema i tyrsene po zaglavie
-* Vodene statistika za vseki potrebitel i test
-* Interaktiven redaktor za testove
-* Fluiden UX
+## Функционалснот
+* Регистрация на потребители
+* Възможност за разглеждане и решаване на тестове от други потребители
+* Различни теми, свързани с тестовете
+* Възможност за филтриране по тема и търсене по заглавие
+* Водене статистика за всеки потребител и тест
+* Интерактивен редактор за тестове
+* Флуиден UX
 
-## Tehnologii
+## Технологии
 * HTML, CSS, JavaScript
 * lit-html, page.js
-* Github Pages, Back$App
+* Github Pages, Back4App
 
-## Ekrani (Stranici)
+## Екрани (Страници)
 * **Welcome Screen** (landing page)
-* **Login/Register** - registraciq s meil, potr. ime, parola
-* **Quiz Browser** - spisyk s testove i vyzhmozhnost za tyrsene po zaglavie i filtraciq po tema
-* **Quiz Details** - dopylnitelno opisanie, statistika za testa, informaciq za avtora i vyzmozhnost za startirane na testa
-* **Quiz Contest Mode** - otgovarqne na vyprosi, vseki e v otdelen izgled, vyzmozhnost za svobodno preminavane ot vypros na vypros, vyzmozhnost za restartirane na testa
-* **Quiz Results** - obobshtenie na rezultatite, vyzmozhnost za preglezhdane na sgreshenite vyprosi
-* **Profile Page** - informaciq za syzdadeni testove i  vsichki resheni testove
-* **Quiz Editor** - integriran redaktor za testove, vyprosi i otgovori
+* **Login/Register** - регистрация с мейл, потребителско име, парола
+* **Quiz Browser** - списък с тестове и възможност за търсене по заглавие и филтрация по тема
+* **Quiz Details** - допълнително описание, статистика описание, статистика за теста, информация за автора и възможност за стартиране на теста
+* **Quiz Contest Mode** - отговаряне на въпроси, всеки е в отделен изглед, възможност за свободно преминаване от въпрос на въпрос, възможност за рестартиране на теста
+* **Quiz Results** - обобщение на резултатите, възможност за преглеждане на сгрешените въпроси
+* **Profile Page** - инфрмация за създадени тестове и всички решени тестове
+* **Quiz Editor** - интегриран редактор за тестове, въпроси и отговори
 
-## Plan za izpylnenie
+##  План за изпълнение
 ### Part 1
-* Syzdavane i nastroivane na prilozhenie v Back4App
-* Deploivane na prilozhenie v GitHub Pages
-* Login/Register stranica
-* Quiz Editor funkcionalnost
+* Създаване и настройване на приложение в Back4App
+* Деплойване на приложение в GitHub Pages
+* Login/Register страница
+* Quiz Editor функционалност
 
 ### Part 2
-* Dovyrshvane na struktura i stilizaciq
+* Довършване на структура и стилизация
 * Welcome Screen
 * Quiz Browser
 * Quiz Details
@@ -41,10 +41,10 @@ Sistema za syzdavane, upravlenie, i popylvane na testove sys svoboden dostyp.
 * Quiz Results
 * Profile Page
 
-## Realizaciq
-### Struktura na dannite
-#### Kolekcii
-* Sessions (sluzhebna)
+## Реализация
+### Структура на данните
+#### Колекции
+* Sessions (служебна)
 * Users
 ```javascript
 {
@@ -78,8 +78,8 @@ Sistema za syzdavane, upravlenie, i popylvane na testove sys svoboden dostyp.
 }
 ```
 
-#### Kontrol na dostypa
-* Gostite mogat da se registrirat, da preglezhdat kataloga, detailite na testovete i profilnite stranici na potrebitelite
-* Registriranite potrebiteli mogat da reshavat testove, da preglezhdat rezultatite si i da syzdavat i redaktirat testove
-* Samo syzdatelq na edin test mozhe da go redaktira i iztriva
-* Vseki registriran potrebitel mozhe da reshava chuzhd test
+#### Контрол на достъпа
+* Гостите могат да се регистрират, да преглеждат каталога, детайлите на тестовете и профилните страници на потребителите
+* Регистрираните потребители могат да решават тестове, да преглеждат резултатите си и да създават и редактират тестове
+* Само създателя на един тест може да го редактира и изтрива
+* Всеки регистриран потребител може да решава чужд тест

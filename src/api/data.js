@@ -32,7 +32,7 @@ export async function createQuiz(quiz) {
 
 // Quiz collection
 export async function getQuizes() {
-    return await api.get(host + '/classes/Quiz/');
+    return (await api.get(host + '/classes/Quiz')).results;
 }
 
 export async function getQuizById(id) {
@@ -48,8 +48,12 @@ export async function deleteQuiz(id) {
 }
 
 // Question collection
-export async function getQuestionByQuizId(quizId) {
-    const query = JSON.stringify({quiz: createPointer('Quiz', quizId)});
+export async function getQuestionByQuizId(quizId, ownerId) {
+    const query = JSON.stringify({
+        quiz: createPointer('Quiz', quizId),
+        owner: createPointer('_User', ownerId),
+    });
+
     const response = await api.get(host + '/classes/Question?where=' - encodeURIComponent(query));
     return response.results;
 }
