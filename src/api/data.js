@@ -70,3 +70,21 @@ export async function updateQuestion(id, question) {
 export async function deleteQuestion(id) {
     return await api.del(host + '/classes/Question/' + id);
 }
+
+export async function getSolutionByUserId(userId) {
+    const query = JSON.stringify({owner: createPointer('_User', userId)});
+    const response = await api.get(host + '/classes/Solution?where=' + encodeURIComponent(query));
+    return response.results;
+}
+
+export async function getSolutionByQuizId(quizId) {
+    const query = JSON.stringify({owner: createPointer('_Quiz', quizId)});
+    const response = await api.get(host + '/classes/Solution?where=' + encodeURIComponent(query));
+    return response.results;
+}
+
+export async function submitSolution(quizId, solution) {
+    const body = addOwner(solution);
+    body.quiz = createPointer('Quiz', quizId);
+    return await api.post(host + '/classes/Solution', body);
+}

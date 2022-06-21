@@ -1,13 +1,15 @@
-import * as api from "./api/data.js";
-window.api = api;
-
 import {page, render} from "./lib.js";
 
 import {browsePage} from "./views/browse.js";
 import {editorPage} from "./views/editor/editor.js";
 import {loginPage, registerPage} from "./views/auth.js";
-import {logout as apiLogout} from "./api/data.js";
+import {getQuestionByQuizId, getQuizById, logout as apiLogout} from "./api/data.js";
+import {quizPage} from "./views/quiz/quiz.js";
+import {cube} from "./views/common/loader.js";
+import {resultPage} from "./views/quiz/result";
 
+
+const state = {};
 const main = document.getElementById('content');
 
 setUserNav();
@@ -16,10 +18,33 @@ document.getElementById('logoutBtn').addEventListener('click', logout);
 page('/browse', decorateContext, browsePage);
 page('/login', decorateContext, loginPage);
 page('/register', decorateContext, registerPage);
+page('/quiz/:id', decorateContext, getQuiz, quizPage);
+page('/summary/:id', decorateContext, getQuiz, resultPage);
 page('/create', decorateContext, editorPage);
 page('/edit/:id', decorateContext, editorPage);
 
 page.start();
+
+async function getQuiz(ctx, next) {
+    ctx.clearCache = clearCache;
+    const quizId = ctx.params.id;
+    if (state[quizId] == undefined) {
+        ctx.render(cube());
+        state[quizId] = await getQuizById(quizId);
+        const ownerId = state[quizId].owner.objectId;
+        state[quizId].questions = await getQuestionByQuizId(quizId, ownerId);
+        state[quizId].answers = state[quizId].questions.map(q => undefined);
+    }
+
+    ctx.quiz = state[quizId];
+    next();
+}
+
+function clearCache(quizId) {
+    if (state[quizId]) {
+        delete state[quizId];
+    }
+}
 
 function decorateContext(ctx, next) {
     ctx.render = (content) => render(content, main);
